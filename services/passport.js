@@ -5,6 +5,16 @@ const mongoose = require("mongoose");
 
 const User = mongoose.model("users");
 
+passport.serializeUser((user, done) => {
+	done(null, user.id);
+});
+
+passport.deserializeUser((id, done) => {
+	User.findById(id).then((user) => {
+		done(null, user);
+	});
+});
+
 passport.use(
 	new GoogleStrategy(
 		{
@@ -14,16 +24,20 @@ passport.use(
 		},
 		(accessToken, refreshToken, profile, done) => {
 			console.log(profile);
-			User.findOne({ googleId: profile.id }).then((foundUser) => {
-				if (foundUser) {
-					//we already have the same user
-					done(null, foundUser);
-				} else {
-					new User({ googleId: profile.id }).save().then((user1) => {
-						done(null, user);
-					});
-				}
-			});
+			User.findOne({ googleId: profile.id })
+				.then((foundUser) => {
+					if (foundUser) {
+						//we already have the same user
+						done(null, foundUser);
+					} else {
+						new User({ googleId: profile.id }).save().then((user1) => {
+							done(null, user);
+						});
+					}
+				})
+				.catch((err) => {
+					console.log(err);
+				});
 		}
 	)
 );
