@@ -1,5 +1,5 @@
 {
-	"name": "server",
+	"name": "surveyapp-server",
 	"version": "1.0.0",
 	"description": "this is the server functionality of a survey app",
 	"main": "app.js",
