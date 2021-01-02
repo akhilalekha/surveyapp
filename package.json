@@ -1,7 +1,7 @@
 {
 	"name": "surveyapp-server",
 	"version": "1.0.0",
-	"description": "this is the server functionality of a survey app",
+	"description": "This is a survey app",
 	"main": "app.js",
 	"engines": {
 		"node": "14.15.0",
@@ -9,11 +9,14 @@
 	},
 	"scripts": {
 		"start": "node app.js",
-		"dev": "nodemon app.js"
+		"server": "nodemon app.js",
+		"client": "npm run start --prefix client/",
+		"dev": "concurrently \"npm run server\" \"npm run client\""
 	},
 	"author": "Akhila C R",
 	"license": "ISC",
 	"dependencies": {
+		"concurrently": "^5.3.0",
 		"cookie-session": "^1.4.0",
 		"express": "^4.17.1",
 		"mongoose": "^5.11.7",
