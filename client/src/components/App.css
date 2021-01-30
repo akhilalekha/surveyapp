@@ -1,16 +1,10 @@
-* {
-	margin: 0;
-	padding: 0;
-	color: white;
-}
 .App {
-	text-align: center;
 	background-color: #282c34;
 	background-color: #124d2f;
+	color: white;
 }
 
 .container {
-	/* min-height: 100vh; */
 	display: flex;
 	flex-direction: column;
 	align-items: center;
