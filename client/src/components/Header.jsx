@@ -10,13 +10,24 @@ export default class Header extends Component {
 						<a href="/" className="left brand-logo">
 							Survey App
 						</a>
-						<ul id="nav-mobile" className="right hide-on-med-and-down">
+						{/* <a href="/" data-target="mobile-demo" class="sidenav-trigger">
+							<i class="material-icons">menu</i>
+						</a> */}
+						<ul id="nav-mobile" className="right">
 							<li>
 								<a href="/">Login with Google</a>
 							</li>
 						</ul>
 					</div>
 				</nav>
+				{/* <ul class="sidenav" id="mobile-demo">
+					<li>
+						<a href="/">Login with Google</a>
+					</li>
+					<li>
+						<a href="/">Components</a>
+					</li>
+				</ul> */}
 				<header>
 					<h3>Welcome to Survey App</h3>
 				</header>

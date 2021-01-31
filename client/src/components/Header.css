@@ -1,3 +1,7 @@
 nav .brand-logo {
 	padding: 0 1rem;
 }
+.material-icons {
+	height: 50px;
+	width: 20px;
+}
