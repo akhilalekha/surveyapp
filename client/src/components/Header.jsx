@@ -1,8 +1,10 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import "./Header.css";
 
-export default class Header extends Component {
+class Header extends Component {
 	render() {
+		console.log(this.props);
 		return (
 			<div>
 				<nav>
@@ -10,9 +12,6 @@ export default class Header extends Component {
 						<a href="/" className="left brand-logo">
 							Survey App
 						</a>
-						{/* <a href="/" data-target="mobile-demo" class="sidenav-trigger">
-							<i class="material-icons">menu</i>
-						</a> */}
 						<ul id="nav-mobile" className="right">
 							<li>
 								<a href="/">Login with Google</a>
@@ -20,14 +19,6 @@ export default class Header extends Component {
 						</ul>
 					</div>
 				</nav>
-				{/* <ul class="sidenav" id="mobile-demo">
-					<li>
-						<a href="/">Login with Google</a>
-					</li>
-					<li>
-						<a href="/">Components</a>
-					</li>
-				</ul> */}
 				<header>
 					<h3>Welcome to Survey App</h3>
 				</header>
@@ -38,3 +29,7 @@ export default class Header extends Component {
 		);
 	}
 }
+function mapStateToProps(state) {
+	return { auth: state.auth };
+}
+export default connect(mapStateToProps)(Header);
