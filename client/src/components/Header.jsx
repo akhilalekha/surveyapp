@@ -3,6 +3,27 @@ import { connect } from "react-redux";
 import "./Header.css";
 
 class Header extends Component {
+	renderContent() {
+		switch (this.props.auth) {
+			//request pending
+			case null:
+				return;
+			case false:
+				//logged out
+				return (
+					<li>
+						<a href="/auth/google">Login with Google</a>
+					</li>
+				);
+			default:
+				//logged in
+				return (
+					<li>
+						<a href="/api/logout">Logout</a>
+					</li>
+				);
+		}
+	}
 	render() {
 		console.log(this.props);
 		return (
@@ -13,18 +34,13 @@ class Header extends Component {
 							Survey App
 						</a>
 						<ul id="nav-mobile" className="right">
-							<li>
-								<a href="/">Login with Google</a>
-							</li>
+							{this.renderContent()}
 						</ul>
 					</div>
 				</nav>
 				<header>
 					<h3>Welcome to Survey App</h3>
 				</header>
-				<div className="container">
-					<a href="/auth/google">Sign in with Google</a>
-				</div>
 			</div>
 		);
 	}
