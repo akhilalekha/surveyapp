@@ -38,9 +38,6 @@ class Header extends Component {
 						</ul>
 					</div>
 				</nav>
-				<header>
-					<h3>Welcome to Survey App</h3>
-				</header>
 			</div>
 		);
 	}

@@ -7,7 +7,12 @@ import Header from "./Header";
 
 const Dashboard = () => <h2>Dashboard</h2>;
 const SurveyNew = () => <h2>SurveyNew</h2>;
-const Landing = () => <h2>Landing</h2>;
+const Landing = () => (
+	<header>
+		<h2>Landing</h2>
+		<h3>Welcome to Survey App</h3>
+	</header>
+);
 
 class App extends Component {
 	componentDidMount() {
